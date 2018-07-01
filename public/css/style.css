@@ -1,0 +1,90 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+
+/* reset */
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none; color:#555; }
+img { border:0;}
+body { font:12px/1.6 'Poiret One'; color:#555; }
+
+
+/* == 기본 레이아웃(1600px이상) 설정 == */
+/*#wrapper {width:100%; min-height: 100%;}*/
+header { position:relative; width:100%; height:80px; background:#fff; top:0px; left:0px; transition:all 0.5s}
+
+nav { position:relative; width:100%; height:35px; background:#212121; margin-left:0%;}
+
+
+aside { width:210px; height:100%;margin: 0px 0px;  background-color: white; float: left;
+ 				border-right-color: gray; border-right-width: 1px; border-right-style: solid;}
+.menu {padding-left: 10%; margin-top: 5%;}
+
+section{width:100%; height:100%; margin-top: 0px; margin-left: 210px; background-color: white;}
+
+
+footer{width:100%; height:30px; background-color: #505050; position: absolute; margin:auto; clear:both;}
+
+
+
+/* --------------------------------------------------------------------------------*/
+/* header 컨텐츠 배치 */
+/* h1에 넓이와 높이를 설정한 뒤, 이미지로 로고 이미지를 삽입하고, h1에 있는 "logo" 텍스트가 보이지 않도록
+   화면 밖으로 배치(text-indent:-99999px) */
+header h1 { width:300px; height:60px; background:url(../img/logo2.png) no-repeat 0px 0px;
+            background-size:contain; position:absolute; top:20px; left:20px;	text-indent:-99999px;}
+
+#gnb { padding-top: 2%; margin-left: 500px;} /* #gnb 위치를 재 배치 */
+#gnb li { float:left;}/* li를 가로로 배치 */
+/*#gnb { position:absolute; top:300px; right:57px;}*/
+/* #gnb a를 block 모델로 변경한 뒤, padding으로 모양을 잡아주고, a에 마우스 오버 시 처리할
+   transition을 미리 설정  */
+#gnb a { display:block; padding:8px 30px; font-size:17px; font-weight:bold; color:#555;
+         text-align:left; line-height:1.8; transition:all .5s;}
+#gnb a:hover { color:skyblue;}/* 마우스 오버 시 글자색을 바꾼다. */
+#gnb a i { margin-right:13px;}
+
+/* .snsSet 넓이와 높이를 설정한 후 왼쪽으로 플로팅 시켜 배치 */
+.snsSet { width:90px; height:47px; position:absolute; bottom:20px; right:80px;}
+.snsSet a { float:left;}
+
+/* --------------------------------------------------------------------------------*/
+
+/* == nav == */
+/* 네비게이션 메뉴 위치 설정 */
+
+nav p { display: inline; position: absolute; left: 1100px; top:5px;
+              color: white; font-size:16px; font-family: '나눔바른펜';}
+.welcome {position: absolute; right:290px; top:6px;}
+.logout {position: absolute; right:100px; top:5px;}
+
+
+
+
+/*aside 설정*/
+.menu li {font-family:'나눔바른펜'; font-size: 18px;	}
+.menu li a:hover {color:skyblue; transition:all .5s;}
+
+.loginForm {margin-left:12.5%; margin-top: 30%;}
+.btn_login {margin-left: 25%; margin-top: 5%;}
+.txt_login {border-style: solid; border-top-width: 0px; border-bottom-width: 1px;
+	         border-left-width: 0px; border-right-width: 0px; border-color: gray; background-color: white;}
+/*section 설정*/
+#main_img {margin:auto; margin-top: 10px; display: block; width: 80%; height: 80%;}
+section h1 {font-size: 24px; font-family: '나눔바른펜'; font-weight: bold; margin-left: 5%; margin-top:1%;}
+.item_list,.item_list th,.item_list td{border:0}
+.item_list{width:1100px; margin-left: 5%; margin-right:5%; border-bottom:2px solid #dcdcdc;font-family:Tahoma;font-size:11px;text-align:center}
+.item_list caption{display:none}
+.item_list th{padding:7px 0 4px;border-top:2px solid #dcdcdc;background-color:#f5f7f9;color:#666;font-family:'돋움',dotum;font-size:12px;font-weight:bold}
+.item_list td{padding:6px 0 4px;border-top:1px solid #e5e5e5;color:#4c4c4c}
+
+
+
+.tab_menu{overflow:hidden;width:600px;background:url(http://html.nhncorp.com/data/guidelines/uio/img/menu/bg_tab.gif) repeat-x 0 100%;font-size:12px;list-style:none;margin:0;padding-left: 5%; }
+.tab_menu li{display:inline;float:left;margin-right:-1px;border:1px solid #d4d4d4;color:#333}
+.tab_menu li a{display:block;float:left;height:20px;padding:9px 18px 0 19px;color:#666;text-decoration:none}
+.tab_menu li a:hover{background:#f4f4f4;color:#333}
+.tab_menu li.selected{border-bottom:1px solid #f4f4f4;background:#f4f4f4}
+.tab_menu li.selected a{color:#333;font-weight:bold;letter-spacing:-1px}
+
+.contentTitle a:hover{font-weight:bold; color:green; text-decoration: underline; transition:all 0.5s}
