@@ -1,0 +1,104 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    title  smart baby bed
+    // 웹 폰트 아이콘 사용을 위한 외부 css파일 링크
+    script(src='https://use.fontawesome.com/5db4e13ee1.js')
+    link(rel='stylesheet', href='css/style.css')
+
+    script.
+      function getFileDown(){
+        location.href='/fileDown'
+      }
+
+  body
+    // 헤더 영역
+    header
+      a(href='/')
+        h1 logo
+      ul#gnb
+        // 웹 아이콘 배치
+        li
+          a(href='/member_list')
+            i.fa.fa-user
+            | Member
+        li
+          a(href='/video_list')
+            i.fa.fa-video-camera
+            | Video
+        li
+          a(href='/audio_list')
+            i.fa.fa-volume-up
+            | Audio
+        li
+          a(href='/product_list')
+            i.fa.fa-bed
+            | Product
+      .snsSet
+        a(href='#')
+          img(src='img/sns1.png', alt='about')
+        a(href='#')
+          img(src='img/sns2.png', alt='contact')
+        a(href='#')
+          img(src='img/sns3.png', alt='facebook')
+        a(href='#')
+          img(src='img/sns4.png', alt='twitter')
+        a(href='#')
+          img(src='img/sns5.png', alt='etc')
+    // 네비게이션 영역
+    nav
+      p= loginName
+      img.welcome(src='img/welcome.png', alt='')
+      a.logout(href='/logout')
+        img(src='img/logout.png', alt='')
+    // aside 영역
+    aside
+      ul.menu
+        h1
+          i.fa.fa-bed
+          |   Product
+        br
+        li
+          a(href='/product_list') 제품 목록 조회
+        li
+          a(href='/product_add') 제품 간단 등록
+        li
+          a(href='/product_add_csv') 제품 엑셀 등록
+
+    // section 영역
+    section
+      h1 제품 엑셀 등록
+      br
+      br
+      table.item_list(cellspacing='0', border='1', summary='파일양식 다운')
+        caption 제품 목록
+        colgroup
+          col
+
+        thead
+          tr
+            th(scope='col') 파일 양식 다운로드
+        tbody
+              td(class='csvDownload')
+                button(value='fileDown' id='fileDown' onclick='getFileDown()') 다운로드
+      br
+      br
+      br
+      br
+      table.item_list(cellspacing='0', border='1', summary='제품목록 일괄 추가')
+        caption 제품 목록
+        colgroup
+          col
+
+        thead
+          tr
+            th(scope='col') 엑셀 파일 업로드
+        tbody
+            td(class='csvUpload')
+              form(action='product_add_csv' method='post')
+                input(type='file' name='csv_path')
+                input(type='submit' value='추가')
+
+    // footer 영역
+    footer

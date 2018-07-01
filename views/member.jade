@@ -1,0 +1,111 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    title  smart baby bed
+    // 웹 폰트 아이콘 사용을 위한 외부 css파일 링크
+    script(src='https://use.fontawesome.com/5db4e13ee1.js')
+    link(rel='stylesheet', href='css/style.css')
+
+    script.
+      function deleteConfirm(){
+        var btn = document.getElementsByName("btnRemove");
+        var result = confirm("삭제하시겠습니까?");
+        if(result == false){
+          for(var i=0; i<btn.length;i++){
+            btn[i].setAttribute('href', '/member_list');
+          }
+
+        }
+      }
+  body
+    // 헤더 영역
+    header
+      a(href='/')
+        h1 logo
+      ul#gnb
+        // 웹 아이콘 배치
+        li
+          a(href='/member_list')
+            i.fa.fa-user
+            | Member
+        li
+          a(href='/video_list')
+            i.fa.fa-video-camera
+            | Video
+        li
+          a(href='/audio_list')
+            i.fa.fa-volume-up
+            | Audio
+        li
+          a(href='/product_list')
+            i.fa.fa-bed
+            | Product
+      .snsSet
+        a(href='#')
+          img(src='img/sns1.png', alt='about')
+        a(href='#')
+          img(src='img/sns2.png', alt='contact')
+        a(href='#')
+          img(src='img/sns3.png', alt='facebook')
+        a(href='#')
+          img(src='img/sns4.png', alt='twitter')
+        a(href='#')
+          img(src='img/sns5.png', alt='etc')
+    // 네비게이션 영역
+    nav
+      p= loginName
+      img.welcome(src='img/welcome.png', alt='')
+      a.logout(href='/logout')
+        img(src='img/logout.png', alt='')
+    // aside 영역
+    aside
+      ul.menu
+        h1
+          i.fa.fa-user
+          |   Member
+        br
+        li
+          a(href='/member_list') 회원 목록 조회
+        li
+          a(href='/member_add') 회원 목록 추가
+
+
+    // section 영역
+    section
+      h1 회원목록 조회
+      br
+      table.item_list(cellspacing='0', border='1', summary='사용자 회원가입 리스트')
+        caption 회원 목록
+        colgroup
+          col
+          col
+          col
+          col
+          col
+          col
+        thead
+          tr
+            th(scope='col') 사용자 아이디
+            th(scope='col') 등록된 시리얼번호
+            th(scope='col') 사용자 이름
+            th(scope='col') 가입날짜
+            th(scope='col')
+            th(scope='col')
+        tbody
+
+          each item in items
+            tr
+              td= item.userid
+              td= item.serialno
+              td= item.name
+              td= item.m_date
+              td
+                button
+                  a(href='/member_edit/'+item.userid) 수정
+              td
+                button
+                  a(name='btnRemove', href='/member_list/'+item.userid, onclick='deleteConfirm()') 삭제
+
+    // footer 영역
+    footer

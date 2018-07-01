@@ -1,0 +1,93 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    title  smart baby bed
+    // 웹 폰트 아이콘 사용을 위한 외부 css파일 링크
+    script(src='https://use.fontawesome.com/5db4e13ee1.js')
+    link(rel='stylesheet', href='css/style.css')
+
+    script.
+      function cateCheck(){
+        var category = document.getElementById('category');
+        var cindex = category.selectedIndex;
+        if(cindex === 0){
+          alert('카테고리를 선택해주세요.');
+    
+          }
+
+      }
+
+  body
+    // 헤더 영역
+    header
+      a(href='/')
+        h1 logo
+      ul#gnb
+        // 웹 아이콘 배치
+        li
+          a(href='/member_list')
+            i.fa.fa-user
+            | Member
+        li
+          a(href='/video_list')
+            i.fa.fa-video-camera
+            | Video
+        li
+          a(href='/audio_list')
+            i.fa.fa-volume-up
+            | Audio
+        li
+          a(href='/product_list')
+            i.fa.fa-bed
+            | Product
+      .snsSet
+        a(href='#')
+          img(src='img/sns1.png', alt='about')
+        a(href='#')
+          img(src='img/sns2.png', alt='contact')
+        a(href='#')
+          img(src='img/sns3.png', alt='facebook')
+        a(href='#')
+          img(src='img/sns4.png', alt='twitter')
+        a(href='#')
+          img(src='img/sns5.png', alt='etc')
+    // 네비게이션 영역
+    nav
+      p= loginName
+      img.welcome(src='img/welcome.png', alt='')
+      a.logout(href='/logout')
+        img(src='img/logout.png', alt='')
+    // aside 영역
+    aside
+      ul.menu
+        h1
+          i.fa.fa-video-camera
+          |   Video
+        br
+        li
+          a(href='/video_list') 영상 목록 조회
+        li
+          a(href='/video_add') 영상 파일 등록
+
+    // section 영역
+    section
+      h1 동영상 업로드
+      br
+      form(action='/video_add' method='post' name = 'form' enctype='multipart/form-data')
+        p
+          input(type='text' name='v_title' placeholder='동영상 제목')
+        p
+          select(name='v_category' id='category')
+            option(name='null') ---카테고리 선택---
+            option(name='cartoon') 만화
+            option(name='study') 교육영상
+            option(name='study') 기타
+        p
+          input(type='file' name='v_path' placeholder='파일 경로')
+        p
+          input(type='submit' value='등록' name='btnSubmit' onclick='cateCheck()')
+          button
+            a(href='/video_list') 취소
+    // footer 영역
+    footer

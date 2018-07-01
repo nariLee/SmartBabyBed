@@ -1,0 +1,64 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    title  smart baby bed
+    // 웹 폰트 아이콘 사용을 위한 외부 css파일 링크
+    script(src='https://use.fontawesome.com/5db4e13ee1.js')
+    link(rel='stylesheet', href='css/style.css')
+
+  body
+    //
+      기본 레이아웃
+      <header>영역, <nav>영역, <section>영역으로 그룹을 나누고, <section>영역에 12개의 <article>을 생성
+    // header 영역
+    header
+      a(href='/')
+        h1 logo
+      ul#gnb
+        // 웹 아이콘 배치
+        li
+          a(href='/member_list')
+            i.fa.fa-user
+            | Member
+        li
+          a(href='/video_list')
+            i.fa.fa-video-camera
+            | Video
+        li
+          a(href='/audio_list')
+            i.fa.fa-volume-up
+            | Audio
+        li
+          a(href='/product_list')
+            i.fa.fa-bed
+            | Product
+      .snsSet
+        a(href='#')
+          img(src='img/sns1.png', alt='about')
+        a(href='#')
+          img(src='img/sns2.png', alt='contact')
+        a(href='#')
+          img(src='img/sns3.png', alt='facebook')
+        a(href='#')
+          img(src='img/sns4.png', alt='twitter')
+        a(href='#')
+          img(src='img/sns5.png', alt='etc')
+    // nav 영역
+    nav
+    // aside 영역
+    aside
+      form#loginForm(method='post', action='/')
+        ul.loginForm
+          li
+            input.txt_login(type='text', name='adminid', placeholder='아이디')
+          br
+          li
+            input.txt_login(type='password', name='adminpw', placeholder='비밀번호')
+          li
+            input.btn_login(type='IMAGE', src='img/util3.png', value='Submit', onclick='setId()')
+    // section 영역
+    section
+      img#main_img(src='img/mainImg.png')
+    // footer 영역
+    footer
